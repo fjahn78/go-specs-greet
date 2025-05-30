@@ -3,6 +3,7 @@ package main_test
 import (
 	"testing"
 
+	go_specs_greet "lsscmp.fin-rlp.local/ZD0436admin/go-specs-greet"
 	"lsscmp.fin-rlp.local/ZD0436admin/go-specs-greet/specifications"
 )
 
