@@ -1,6 +1,6 @@
 # Make sure to specify the same Go version as the one in the go.mod file.
 # For example, golang:1.22.1-alpine.
-FROM golang:1.24.2-alpine
+FROM golang:1.24.4-alpine
 
 WORKDIR /app
 
