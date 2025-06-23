@@ -2,15 +2,16 @@ package specifications
 
 import (
 	"testing"
+
 	"github.com/alecthomas/assert/v2"
 )
 
 type Greeter interface {
-	Greet() (string, error)
+	Greet(name string) (string, error)
 }
 
-func GreetSpecification(t testing.TB, greeter Greeter)  {
-	got, err := greeter.Greet()
+func GreetSpecification(t testing.TB, greeter Greeter) {
+	got, err := greeter.Greet("Frank")
 	assert.NoError(t, err)
-	assert.Equal(t, got, "Hello, world")
+	assert.Equal(t, got, "Hello, Frank")
 }
