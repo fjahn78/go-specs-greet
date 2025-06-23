@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/alecthomas/assert/v2"
-	go_specs_greet "github.com/fjahn78/go-specs-greet"
+	"github.com/fjahn78/go-specs-greet/adapters/httpserver"
 	"github.com/fjahn78/go-specs-greet/specifications"
 	"github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/wait"
@@ -18,8 +18,8 @@ func TestGreeterServer(t *testing.T) {
 
 	req := testcontainers.ContainerRequest{
 		FromDockerfile: testcontainers.FromDockerfile{
-			Context:       "../../../.",
-			Dockerfile:    "./specifications/cmd/httpserver/Dockerfile",
+			Context:       "../../.",
+			Dockerfile:    "./cmd/httpserver/Dockerfile",
 			PrintBuildLog: true,
 		},
 		ExposedPorts: []string{"8080:8080"},
@@ -38,6 +38,6 @@ func TestGreeterServer(t *testing.T) {
 		Timeout: 1 * time.Second,
 	}
 
-	driver := go_specs_greet.Driver{BaseURL: "http://localhost:8080", Client: &client}
+	driver := httpserver.Driver{BaseURL: "http://localhost:8080", Client: &client}
 	specifications.GreetSpecification(t, driver)
 }
