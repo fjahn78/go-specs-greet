@@ -1,6 +1,6 @@
 package main_test
 
-imports (
+import (
 	"fmt"
 	"testing"
 
