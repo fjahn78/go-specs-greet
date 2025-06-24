@@ -2,12 +2,10 @@ package main_test
 
 import (
 	"fmt"
-	"net/http"
 	"testing"
-	"time"
 
 	"github.com/fjahn78/go-specs-greet/adapters"
-	"github.com/fjahn78/go-specs-greet/adapters/httpserver"
+	"github.com/fjahn78/go-specs-greet/adapters/grpcserver"
 	"github.com/fjahn78/go-specs-greet/specifications"
 )
 
