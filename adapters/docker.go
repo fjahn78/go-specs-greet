@@ -21,7 +21,7 @@ func StartDockerServer(
 	t.Helper()
 	req := testcontainers.ContainerRequest{
 		FromDockerfile: testcontainers.FromDockerfile{
-			Context: "../../.",
+			Context: "../.",
 			Dockerfile: dockerFilePath,
 			PrintBuildLog: true,
 	},
