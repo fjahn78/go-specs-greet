@@ -4,8 +4,12 @@ go 1.24.2
 
 require (
 	github.com/alecthomas/assert/v2 v2.11.0
-	github.com/docker/go-connections v0.5.0
 	github.com/testcontainers/testcontainers-go v0.37.0
+)
+
+require (
+	github.com/docker/go-connections v0.5.0
+	google.golang.org/grpc v1.72.2
 )
 
 require (
@@ -62,8 +66,10 @@ require (
 	go.opentelemetry.io/otel/trace v1.36.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.7.0 // indirect
 	golang.org/x/crypto v0.39.0 // indirect
+	golang.org/x/net v0.40.0 // indirect
 	golang.org/x/sys v0.33.0 // indirect
+	golang.org/x/text v0.26.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250603155806-513f23925822 // indirect
-	google.golang.org/protobuf v1.36.6 // indirect
+	google.golang.org/protobuf v1.36.6
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
