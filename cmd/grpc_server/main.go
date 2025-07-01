@@ -9,17 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-package main
-
-import (
-	"context"
-	"log"
-	"net"
-
-	"github.com/quii/go-specs-greet/adapters/grpcserver"
-	"google.golang.org/grpc"
-)
-
 func main() {
 	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
