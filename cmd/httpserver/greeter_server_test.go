@@ -12,10 +12,14 @@ import (
 )
 
 func TestGreeterServer(t *testing.T) {
+	if testing.Short() {
+		t.Skip()
+	}
+
 	var (
-		port       = "8080"
-		baseURL    = fmt.Sprintf("http://localhost:%s", port)
-		driver     = httpserver.Driver{
+		port    = "8080"
+		baseURL = fmt.Sprintf("http://localhost:%s", port)
+		driver  = httpserver.Driver{
 			BaseURL: baseURL,
 			Client: &http.Client{
 				Timeout: 1 * time.Second,
