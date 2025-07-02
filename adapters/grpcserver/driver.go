@@ -13,7 +13,9 @@ type Driver struct {
 
 func (d Driver) Greet(name string) (string, error) {
 	//todo: we shouldn't redial every time we call greet, refactor out when we're green
-	conn, err := grpc.Dial(d.Addr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+
+	conn, err := grpc.NewClient(d.Addr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	// conn, err := grpc.Dial(d.Addr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return "", err
 	}
