@@ -11,10 +11,9 @@ import (
 
 func TestGreeterServer(t *testing.T) {
 	var (
-		port           = "50051"
-		dockerFilePath = "./cmd/grpc_server/Dockerfile"
-		driver         = grpcserver.Driver{Addr: fmt.Sprintf("localhost:%s", port)}
+		port   = "50051"
+		driver = grpcserver.Driver{Addr: fmt.Sprintf("localhost:%s", port)}
 	)
-	adapters.StartDockerServer(t, port, dockerFilePath)
+	adapters.StartDockerServer(t, port, "grpc_server")
 	specifications.GreetSpecification(t, &driver)
 }
