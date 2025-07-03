@@ -1,6 +1,8 @@
-build:
+test:
 	golangci-lint run
 	go test ./...
+build:
+	go build -v ./...
 
 unit-tests:
 	go test -short ./...
