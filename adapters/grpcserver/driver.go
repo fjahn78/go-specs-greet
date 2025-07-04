@@ -46,7 +46,6 @@ func (d *Driver) Curse(name string) (string, error) {
 	}
 
 	return greeting.Message, nil
-
 }
 
 func (d *Driver) getClient() (GreeterClient, error) {

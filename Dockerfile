@@ -1,4 +1,4 @@
-FROM golang:1.24-alpine
+FROM golang:1.24-alpine AS builder
 
 WORKDIR /app
 
@@ -12,5 +12,6 @@ COPY . .
 
 RUN go build -o svr cmd/$bin_to_build/main.go
 
-EXPOSE 50051
+FROM alpine:latest
+COPY --from=builder /app/svr .
 CMD [ "./svr" ]

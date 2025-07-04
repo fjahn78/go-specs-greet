@@ -13,7 +13,7 @@ func TestGreeterServer(t *testing.T) {
 	if testing.Short() {
 		t.Skip()
 	}
-	
+
 	var (
 		port   = "50051"
 		driver = grpcserver.Driver{Addr: fmt.Sprintf("localhost:%s", port)}

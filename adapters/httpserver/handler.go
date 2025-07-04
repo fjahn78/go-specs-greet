@@ -2,6 +2,7 @@ package httpserver
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/fjahn78/go-specs-greet/domain/interactions"
@@ -22,6 +23,8 @@ func NewHandler() http.Handler {
 func replyWith(f func(name string) (interaction string)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		name := r.URL.Query().Get("name")
-		fmt.Fprint(w, f(name))
+		if _, err := fmt.Fprint(w, f(name)); err != nil {
+			log.Fatal(err)
+		}
 	}
 }

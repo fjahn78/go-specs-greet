@@ -12,29 +12,19 @@ type Driver struct {
 
 // Curse implements specifications.MeanGreeter.
 func (d Driver) Curse(name string) (string, error) {
-	return newFunction(d, name)
-}
-
-func newFunction(d Driver, name string) (string, error) {
-	res, err := d.Client.Get(d.BaseURL + "/curse?name=" + name)
-	if err != nil {
-		return "", err
-	}
-	defer res.Body.Close() //nolint:all
-
-	greeting, err := io.ReadAll(res.Body)
-	if err != nil {
-		return "", err
-	}
-	return string(greeting), nil
+	return d.getAndReadFrom(cursePath, name)
 }
 
 func (d Driver) Greet(name string) (string, error) {
-	res, err := d.Client.Get(d.BaseURL + "/greet?name=" + name)
+	return d.getAndReadFrom(greetPath, name)
+}
+
+func (d Driver) getAndReadFrom(path string, name string) (string, error) {
+	res, err := d.Client.Get(d.BaseURL + path + "?name=" + name)
 	if err != nil {
 		return "", err
 	}
-	defer res.Body.Close() //nolint:all
+	defer res.Body.Close()
 
 	greeting, err := io.ReadAll(res.Body)
 	if err != nil {
