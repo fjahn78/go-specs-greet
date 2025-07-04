@@ -8,8 +8,11 @@ import (
 )
 
 func TestGreet(t *testing.T) {
-	spec.GreetSpecification(
-		t,
-		spec.GreetAdapter(interactions.Greet),
-	)
+	t.Run("a name is given", func(t *testing.T) {
+		spec.GreetSpecification(
+			t,
+			spec.GreetAdapter(interactions.Greet),
+		)
+	})
+	// t.Run()
 }
