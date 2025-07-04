@@ -2,15 +2,26 @@ package httpserver
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 
-	gsg "github.com/fjahn78/go-specs-greet/domain/interactions"
+	"github.com/fjahn78/go-specs-greet/domain/interactions"
 )
 
-func Handler(w http.ResponseWriter, r *http.Request) {
-	name := r.URL.Query().Get("name")
-	if _, err := fmt.Fprint(w, gsg.Greet(name)); err!= nil {
-		log.Fatal(err)
+const (
+	greetPath = "/greet"
+	cursePath = "/curse"
+)
+
+func NewHandler() http.Handler {
+	mux := http.NewServeMux()
+	mux.HandleFunc(greetPath, replyWith(interactions.Greet))
+	mux.HandleFunc(cursePath, replyWith(interactions.Curse))
+	return mux
+}
+
+func replyWith(f func(name string) (interaction string)) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		name := r.URL.Query().Get("name")
+		fmt.Fprint(w, f(name))
 	}
 }
