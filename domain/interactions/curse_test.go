@@ -7,9 +7,9 @@ import (
 	spec "github.com/fjahn78/go-specs-greet/specifications"
 )
 
-func TestGreet(t *testing.T) {
-	spec.GreetSpecification(
+func TestCurse(t *testing.T) {
+	spec.CurseSpecification(
 		t,
-		spec.GreetAdapter(interactions.Greet),
+		spec.CurseAdapter(interactions.Curse),
 	)
 }
