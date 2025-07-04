@@ -15,7 +15,8 @@ func (d Driver) Greet(name string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	defer res.Body.Close()
+	defer res.Body.Close() //nolint:all
+
 	greeting, err := io.ReadAll(res.Body)
 	if err != nil {
 		return "", err
