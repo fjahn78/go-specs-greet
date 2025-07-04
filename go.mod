@@ -2,6 +2,8 @@ module github.com/fjahn78/go-specs-greet
 
 go 1.24
 
+toolchain go1.24.4
+
 require (
 	github.com/alecthomas/assert/v2 v2.11.0
 	github.com/testcontainers/testcontainers-go v0.37.0
