@@ -20,4 +20,5 @@ func TestGreeterServer(t *testing.T) {
 	)
 	adapters.StartDockerServer(t, port, "grpc_server")
 	specifications.GreetSpecification(t, &driver)
+	specifications.CurseSpecification(t, &driver)
 }
